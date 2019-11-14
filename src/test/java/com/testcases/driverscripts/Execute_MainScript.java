@@ -64,6 +64,7 @@ public class Execute_MainScript {
 	public static Logger Applog;
 
 	public static ExtentHtmlReporter htmlreporter;
+	public static ExtentHtmlReporter htmlTempreporter;
 
 	public static ExtentReports extent;
 
@@ -86,7 +87,7 @@ public class Execute_MainScript {
 	long startTime ;
 	String Object;
 	File Reportdir;
-
+	File TempReportdir;
 
 	Xls_writer xls_writer=new Xls_writer();
 
@@ -118,17 +119,23 @@ public class Execute_MainScript {
 		PropertyConfigurator.configure("./resources/Log4j.properties");
 		Startdate = new Date() ;
 		StartTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss") ;
-		String rep_file=System.getProperty("user.dir") +"\\Reports\\"+ StartTime.format(Startdate)+"\\STMExtentReport_"+uc.SiteName+".html";
+		String rep_file=System.getProperty("user.dir") +"\\Reports\\"+ StartTime.format(Startdate)+"\\TestSummary_Report.html";
+		String TempRep_file=System.getProperty("user.dir") +"\\test-output\\TestSummary_Report.html";
 		Reportdir= new File(rep_file);
 		Reportdir.getParentFile().mkdirs();
 		Reportdir.createNewFile();
+		
+		TempReportdir= new File(TempRep_file);
+		TempReportdir.getParentFile().mkdirs();
+		TempReportdir.createNewFile();
 
 		htmlreporter= new ExtentHtmlReporter(Reportdir);
+		htmlTempreporter= new ExtentHtmlReporter(TempReportdir);
 
 		extent = new ExtentReports ();
 
 		extent.attachReporter(htmlreporter);
-
+		extent.attachReporter(htmlTempreporter);
 
 
 
