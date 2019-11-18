@@ -243,6 +243,7 @@ public class Execute_MainScript {
 
 		this.Testcasenumber=Testcasenumber;
 		this.Sitename=uc.SiteName;
+		System.out.println("Currently running Testcase : " + Testcasenumber);
 
 		if(Executionmode.equalsIgnoreCase("Yes")){
 			try {
