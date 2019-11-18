@@ -243,11 +243,12 @@ public class Execute_MainScript {
 
 		this.Testcasenumber=Testcasenumber;
 		this.Sitename=uc.SiteName;
-		System.out.println("Currently running Testcase : " + Testcasenumber);
+		
 
 		if(Executionmode.equalsIgnoreCase("Yes")){
 			try {
 				if(Channel.equalsIgnoreCase("Desktop")){
+					System.out.println("Currently running Testcase : " + Testcasenumber);
 					scre.Execute_script(Sitename,browser_name,"./Input_files/Actual_testcases/"+uc.SiteName+"/","./Output_files/"+StartTime.format(Startdate)+"/"+Sitename+"/"+browser_name+"/",
 							"./Screenshots/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,extent,Applog);
 
