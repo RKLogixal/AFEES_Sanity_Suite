@@ -264,9 +264,9 @@ public class Execute_MainScript {
 
 				try {
 
-					webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
-					Thread.sleep(2000);
-					webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
+					//webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
+					//Thread.sleep(2000);
+				///	webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
 					Object=screxe.Object;
 					e.printStackTrace(new PrintWriter(stack));
 					xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
@@ -275,7 +275,7 @@ public class Execute_MainScript {
 
 					softAssert.assertAll();
 
-					failmsg="Timeout issue occured while trying to locate element: " +"'" + Object + "'.You May put WAIT keyword before the step to avoid Timeout issues." ;
+					failmsg="NOT able to find element within given time frame...!!! Element name: " +"'" + Object + "." ;
 					test = extent.createTest(browser_name+"_"+Testcasenumber);	
 					test.fail(MarkupHelper.createLabel(failmsg,ExtentColor.RED));
 					//test.fail(MarkupHelper.createLabel(Testcasenumber+" has been failed....", ExtentColor.RED));
@@ -285,9 +285,9 @@ public class Execute_MainScript {
 
 				catch(Exception te) {
 					
-					webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
-					Thread.sleep(2000);
-					webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
+				//	webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
+					//Thread.sleep(2000);
+					//webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
 					Object=screxe.Object;
 					e.printStackTrace(new PrintWriter(stack));
 					xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
@@ -296,7 +296,7 @@ public class Execute_MainScript {
 
 					softAssert.assertAll();
 
-					failmsg="Timeout issue occured while trying to locate element: " +"'" + Object + "'.You May put WAIT keyword before the step to avoid Timeout issues." ;
+					failmsg="NOT able to find element within given time frame...Element name: " +"'" + Object + "'.You May put WAIT keyword before the step to avoid Timeout issues." ;
 					test = extent.createTest(browser_name+"_"+Testcasenumber);	
 					test.fail(MarkupHelper.createLabel(failmsg,ExtentColor.RED));
 					//test.fail(MarkupHelper.createLabel(Testcasenumber+" has been failed....", ExtentColor.RED));
