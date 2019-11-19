@@ -805,12 +805,12 @@ public class Keywords {
 			}	
 
 			else {
-				Assert.fail("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!!");
+				Assert.fail("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!!"+ "Actual TEXT : " +Gettext +"VS Expected TEXT : "+value);
 				//test.fail("TEXT : "+value+"Which you are looking for Webelement"+objectName+"NOT found...!!!!");
-				throw new NoSuchFieldException("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!!");
+				throw new NoSuchFieldException("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!! "
+						+ "Actual TEXT : " +Gettext +"VS Expected TEXT : "+value);
 
 			}
-
 
 
 		}	catch (Exception e) {
