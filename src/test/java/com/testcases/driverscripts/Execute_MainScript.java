@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +40,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.operations.Common.CheckUserLogin;
 import com.operations.Common.ReadUserconfig;
 import com.operations.Common.Readconfig;
 import com.operations.Common.Script_executor;
@@ -96,6 +98,7 @@ public class Execute_MainScript {
 	SendStatusReport email =new SendStatusReport();
 	StringWriter stack = new StringWriter();
 	Script_executor screxe = new Script_executor();
+	CheckUserLogin chkusr = new CheckUserLogin();
 
 	public static SimpleDateFormat StartTime;
 	public static SimpleDateFormat EndTime;
@@ -119,25 +122,27 @@ public class Execute_MainScript {
 		PropertyConfigurator.configure("./resources/Log4j.properties");
 		Startdate = new Date() ;
 		StartTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss") ;
-		String rep_file=System.getProperty("user.dir") +"\\Reports\\"+ StartTime.format(Startdate)+"\\TestSummary_Report.html";
+	
 		String TempRep_file=System.getProperty("user.dir") +"\\test-output\\TestSummary_Report.html";
-		Reportdir= new File(rep_file);
-		Reportdir.getParentFile().mkdirs();
-		Reportdir.createNewFile();
-		
 		TempReportdir= new File(TempRep_file);
 		TempReportdir.getParentFile().mkdirs();
 		TempReportdir.createNewFile();
-
-		htmlreporter= new ExtentHtmlReporter(Reportdir);
+		
+		if ((uc.HistoricalReports).equalsIgnoreCase("Yes")) {
+			
+			String rep_file=System.getProperty("user.dir") +"\\Reports\\"+ StartTime.format(Startdate)+"\\TestSummary_Report.html";
+			Reportdir= new File(rep_file);
+			Reportdir.getParentFile().mkdirs();
+			Reportdir.createNewFile();
+			htmlreporter= new ExtentHtmlReporter(Reportdir);
+			extent.attachReporter(htmlreporter);
+		}
+		
 		htmlTempreporter= new ExtentHtmlReporter(TempReportdir);
 
 		extent = new ExtentReports ();
 
-		extent.attachReporter(htmlreporter);
 		extent.attachReporter(htmlTempreporter);
-
-
 
 		//startTime = System.
 		Applog.info("Execution started on " + StartTime.format(Startdate));
@@ -243,19 +248,21 @@ public class Execute_MainScript {
 
 		this.Testcasenumber=Testcasenumber;
 		this.Sitename=uc.SiteName;
-		
+
 
 		if(Executionmode.equalsIgnoreCase("Yes")){
 			try {
 				if(Channel.equalsIgnoreCase("Desktop")){
+
+					
 					System.out.println("Currently running Testcase : " + Testcasenumber);
 					scre.Execute_script(Sitename,browser_name,"./Input_files/Actual_testcases/"+uc.SiteName+"/","./Output_files/"+StartTime.format(Startdate)+"/"+Sitename+"/"+browser_name+"/",
-							"./Screenshots/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,extent,Applog);
+							"./Screenshots/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,uc.Scr,uc.ExcelReports,extent,Applog);
 
 				}
 				else if (Channel.equalsIgnoreCase("Mobile")) {
 					scre.Execute_script(Sitename,browser_name,"./Input_files/Actual_testcases/"+uc.SiteName+"/","./Output_files/"+StartTime.format(Startdate)+"/"+Sitename+"/"+browser_name+"/"+Device+"/",
-							"./Screenshots/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/"+Device+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,extent,Applog);
+							"./Screenshots/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/"+Device+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,uc.Scr,uc.ExcelReports,extent,Applog);
 
 				}
 
@@ -264,12 +271,18 @@ public class Execute_MainScript {
 
 				try {
 
-					//webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
-					//Thread.sleep(2000);
-				///	webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
+				
+					chkusr.VerifyUserLoginforLogout(webdriver);
 					Object=screxe.Object;
 					e.printStackTrace(new PrintWriter(stack));
-					xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					if(uc.ExcelReports.equalsIgnoreCase("Yes")) {
+
+						xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					}
+
+					//xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
 
 					Applog.error(stack.toString());
 
@@ -283,14 +296,44 @@ public class Execute_MainScript {
 
 				}
 
-				catch(Exception te) {
+				catch(NoSuchElementException Nse) {
 					
-				//	webdriver.findElement(By.xpath("//*[@id='atg_store_container']/header/div[2]/div/div[4]/div/div/a/span")).click();
-					//Thread.sleep(2000);
-					//webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
+					chkusr.VerifyUserLoginforLogout(webdriver);
 					Object=screxe.Object;
 					e.printStackTrace(new PrintWriter(stack));
-					xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					if(uc.ExcelReports.equalsIgnoreCase("Yes")) {
+
+						xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					}
+
+					//xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					Applog.error(stack.toString());
+
+					softAssert.assertAll();
+
+					failmsg="NOT able to find element within given time frame...!!! Element name: " +"'" + Object + "." ;
+					test = extent.createTest(browser_name+"_"+Testcasenumber);	
+					test.fail(MarkupHelper.createLabel(failmsg,ExtentColor.RED));
+					//test.fail(MarkupHelper.createLabel(Testcasenumber+" has been failed....", ExtentColor.RED));
+					Assert.fail(failmsg);
+
+				}
+				catch(Exception te) {
+
+					chkusr.VerifyUserLoginforLogout(webdriver);
+					
+					Object=screxe.Object;
+					e.printStackTrace(new PrintWriter(stack));
+					//System.out.println(e);
+					if(uc.ExcelReports.equalsIgnoreCase("Yes")) {
+
+						xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+
+					}
+					//	xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
 
 					Applog.error(stack.toString());
 
@@ -312,18 +355,15 @@ public class Execute_MainScript {
 
 			catch (Exception e) {
 
-				/*Boolean bl = webdriver.findElement(By.xpath("//*[@id='atg_store_locale']/div/ul/li[1]/span")).isDisplayed();
+				
+				chkusr.VerifyUserLoginforLogout(webdriver);
+				e.printStackTrace(new PrintWriter(stack));
+				//System.out.println(e);
+				if(uc.ExcelReports.equalsIgnoreCase("Yes")) {
 
-				if(bl==true) {
-
-					webdriver.findElement(By.xpath("//*[@id='atg_store_locale']/div/ul/li[2]")).click();
-
+					xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
 
 				}
-				 */
-				e.printStackTrace(new PrintWriter(stack));
-				System.out.println(e);
-				xls_writer.GenerateFailReport(Testscase_failresults, uc.SiteName, browser_name, Functionality, Testcasenumber, Severity,"./Failed_Reports/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
 
 				Applog.error(stack.toString());
 				softAssert.assertAll();
@@ -340,7 +380,11 @@ public class Execute_MainScript {
 		}
 		else{
 
-			xls_writer.GenearateSkipFile(Testcase_skipresults,Functionality, Testcasenumber, Severity,"./Output_files/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+			if(uc.ExcelReports.equalsIgnoreCase("Yes")) {
+
+				xls_writer.GenearateSkipFile(Testcase_skipresults,Functionality, Testcasenumber, Severity,"./Output_files/"+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/");
+			}
+
 			Applog.info(Testcasenumber + " has been skipped for this execution...");
 			throw new SkipException(Testcasenumber +" has been skipped..");
 		}

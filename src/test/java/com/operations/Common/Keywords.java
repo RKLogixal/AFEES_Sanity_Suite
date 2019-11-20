@@ -59,7 +59,6 @@ public class Keywords {
 	String GetfilePath = "GetAppData.properties";
 
 
-
 	public By getObject(Properties p,String objectName,String objectType) throws Exception {
 		//Find by xpath
 		if(objectType.equalsIgnoreCase("XPATH")){
@@ -424,9 +423,29 @@ public class Keywords {
 			}
 
 		}
-
-
 	}
+
+		public void CLICK_FROM_MANY(WebDriver driver,Properties p,String objectName,String objectType,String value,ExtentTest test,Logger log) throws Exception {
+
+			int counter = Integer.parseInt(value);
+			List <WebElement> CList =driver.findElements(this.getObject(p, objectName, objectType));
+			int CListSize=CList.size();
+
+			for (int cl=0;cl<counter;cl++) {
+
+			CList.get(cl).click();
+
+			}
+			
+		}
+
+					
+				
+
+			
+		
+		
+	
 
 	public void TEMP(WebDriver driver,Properties p,String objectName,String objectType,String value,ExtentTest test,Logger log,String Domain) throws Exception {
 
@@ -552,7 +571,7 @@ public class Keywords {
 		}
 
 		else {
-			
+
 			System.out.println("Items Not found....");
 		}
 
@@ -805,6 +824,8 @@ public class Keywords {
 			}	
 
 			else {
+
+
 				Assert.fail("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!!"+ "Actual TEXT : " +Gettext +"VS Expected TEXT : "+value);
 				//test.fail("TEXT : "+value+"Which you are looking for Webelement"+objectName+"NOT found...!!!!");
 				throw new NoSuchFieldException("TEXT : "+value+" Which you are looking for Webelement "+objectName+" NOT found...!!!! "

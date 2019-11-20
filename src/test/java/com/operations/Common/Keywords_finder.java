@@ -181,6 +181,12 @@ public class Keywords_finder {
 
 		case "CLICK_JAVASCRIPT_ELEMENT":
 			key.CLICK_JAVASCRIPT_ELEMENT(driver, p, objectName, objectType, test, log);
+			break;
+			
+		case "CLICK_FROM_MANY":
+			key.CLICK_FROM_MANY(driver, p, objectName, objectType, value, test, log);
+			break;
+			
 
 		case "WAIT":
 

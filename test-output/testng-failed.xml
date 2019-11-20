@@ -29,7 +29,7 @@
           <include name="TestResults"/>
           <include name="closebrowser"/>
           <include name="close"/>
-          <include name="ExecuteTest" invocation-numbers="2"/>
+          <include name="ExecuteTest" invocation-numbers="2 7 14"/>
           <include name="Pre_requisite"/>
         </methods>
       </class> <!-- com.testcases.driverscripts.Execute_MainScript -->

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -45,14 +46,27 @@ public class NewTest {
 		for (int vl=0;vl<10;vl++) {
 			System.out.println(vl);
 		}
-		
+
 		WebDriver driver ;
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 		//WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		//Dimension d = new Dimension(DeviceScrWidth,DeviceScrHeight);
 		driver.manage().window().maximize();
-		
-		
+
+		long start = System.currentTimeMillis();
+
+		driver.get("http://129.213.54.196:8002");
+
+		long finish = System.currentTimeMillis();
+		long totalTime = finish - start; 
+		System.out.println("Total Time for page load - "+totalTime); 
+
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(totalTime);
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(totalTime);
+		System.out.format("%d Milliseconds = %d minutes\n", totalTime, minutes );
+		System.out.println("Or");
+		System.out.format("%d Milliseconds = %d seconds", totalTime, seconds );
+		driver.close();
 	}
 }
