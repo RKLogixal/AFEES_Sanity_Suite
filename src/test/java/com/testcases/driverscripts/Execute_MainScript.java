@@ -115,7 +115,7 @@ public class Execute_MainScript {
 
 		rc.getObjectRepository();
 		uc.getUserConfig();
-
+		extent = new ExtentReports ();
 		Applog=Logger.getLogger(uc.SiteName);
 
 
@@ -140,7 +140,7 @@ public class Execute_MainScript {
 		
 		htmlTempreporter= new ExtentHtmlReporter(TempReportdir);
 
-		extent = new ExtentReports ();
+		
 
 		extent.attachReporter(htmlTempreporter);
 
