@@ -119,18 +119,18 @@ public class Execute_MainScript {
 		Applog=Logger.getLogger(uc.SiteName);
 
 
-		PropertyConfigurator.configure(System.getProperty("user.dir")+"\\resources\\Log4j.properties");
+		PropertyConfigurator.configure(System.getProperty("user.dir")+"/Resources/log4j.properties");
 		Startdate = new Date() ;
 		StartTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss") ;
 	
-		String TempRep_file=System.getProperty("user.dir") +"\\test-output\\TestSummary_Report.html";
+		String TempRep_file=System.getProperty("user.dir") +"/test-output/TestSummary_Report.html";
 		TempReportdir= new File(TempRep_file);
 		TempReportdir.getParentFile().mkdirs();
 		TempReportdir.createNewFile();
 		
 		if ((uc.HistoricalReports).equalsIgnoreCase("Yes")) {
 			
-			String rep_file=System.getProperty("user.dir") +"\\Reports\\"+ StartTime.format(Startdate)+"\\TestSummary_Report.html";
+			String rep_file=System.getProperty("user.dir") +"/Reports/"+ StartTime.format(Startdate)+"/TestSummary_Report.html";
 			Reportdir= new File(rep_file);
 			Reportdir.getParentFile().mkdirs();
 			Reportdir.createNewFile();
