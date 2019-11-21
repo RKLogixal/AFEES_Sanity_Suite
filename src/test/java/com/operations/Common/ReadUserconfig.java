@@ -21,7 +21,7 @@ public class ReadUserconfig {
 	public void getUserConfig() throws IOException{
 		//Read object repository file
 		
-		File configFile = new File("resources\\UserConfig.properties");
+		File configFile = new File(System.getProperty("user.dir")+"\\resources\\UserConfig.properties");
 		InputStream inputStream = new FileInputStream(configFile);
 		Properties prop1 = new Properties();
 		prop1.load(inputStream);
