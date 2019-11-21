@@ -119,7 +119,7 @@ public class Master_data {
 		
 		else if (uc.OS.equalsIgnoreCase("Linux")) {
 			
-			 Master_file =	new File(Constants.Linux_MEFileLocation+"_"+str+".xlsx");
+			 Master_file =	new File(System.getProperty("user.dir")+"/Input_files/Master_executors/MasterExecutor"+"_"+str+".xlsx");
 			
 		}
 		

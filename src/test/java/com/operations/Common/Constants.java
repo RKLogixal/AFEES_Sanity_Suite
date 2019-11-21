@@ -12,6 +12,6 @@ public class Constants {
 	public static String Linux_OutputFileLocation=System.getProperty("user.dir")+"/Output_files/";
 	public static String Linux_ScreenshotsLocation=System.getProperty("user.dir")+"/Screenshots/";
 	public static String Linux_FailedFileLocation=System.getProperty("user.dir")+"/Failed_Reports/";
-	public static String Linux_MEFileLocation="/Input_files/Master_executors/MasterExecutor";
+	public static String Linux_MEFileLocation=System.getProperty("user.dir")+"/Input_files/Master_executors/MasterExecutor";
 	
 }
