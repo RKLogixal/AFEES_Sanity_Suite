@@ -181,12 +181,27 @@ public class Execute_MainScript {
 
 			} else if (browser.equalsIgnoreCase("chrome"))
 			{
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
-				//WebDriverManager.chromedriver().setup();
-				webdriver = new ChromeDriver();
-				//Dimension d = new Dimension(DeviceScrWidth, DeviceScrHeight);
-				//webdriver.manage().window().setSize(d);
-				webdriver.manage().window().maximize();
+				
+				if(uc.OS.equalsIgnoreCase("Linux")) {
+					
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
+					//WebDriverManager.chromedriver().setup();
+					webdriver = new ChromeDriver();
+					//Dimension d = new Dimension(DeviceScrWidth, DeviceScrHeight);
+					//webdriver.manage().window().setSize(d);
+					webdriver.manage().window().maximize();
+
+				}
+				
+				else if (uc.OS.equalsIgnoreCase("Linux")) {
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
+					//WebDriverManager.chromedriver().setup();
+					webdriver = new ChromeDriver();
+					//Dimension d = new Dimension(DeviceScrWidth, DeviceScrHeight);
+					//webdriver.manage().window().setSize(d);
+					webdriver.manage().window().maximize();
+				}
+				
 
 				this.browser_name=browser;
 				this.Channel=Channel;

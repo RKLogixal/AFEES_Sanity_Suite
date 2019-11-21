@@ -122,7 +122,7 @@ public class Master_data {
 		
 		else if (uc.OS.equalsIgnoreCase("Linux")) {
 			
-			System.out.println((System.getProperty("user.dir")+"/Input_files/Master_executors/MasterExecutor"+"_"+str+".xlsx"));
+			
 			 Master_file =	new File("/Input_files/Master_executors/MasterExecutor"+"_"+str+".xlsx");
 			// (System.getProperty("user.dir")+"/Resources/Config.properties")
 		}
@@ -134,11 +134,11 @@ public class Master_data {
 		//File Master_file =	new File("./Input_files/Master_executors/MasterExecutor_"+str+".xlsx");
 
 		FileInputStream Master_inputStream = null;
-		System.out.println("FIle FILE");
+	
 		Readexcel = new Xls_Reader(System.getProperty("user.dir")+Master_file);
 		
 		try {
-			System.out.println(":^^^^^^^^^SDsd");
+		
 			Master_inputStream = new FileInputStream(System.getProperty("user.dir")+Master_file);
 		} catch (FileNotFoundException e2) {
 			// TODO Auto-generated catch block
