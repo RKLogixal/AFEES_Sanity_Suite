@@ -15,6 +15,7 @@ public class ReadUserconfig {
 	public String Scr;
 	public String ExcelReports;
 	public String HistoricalReports;
+	public String OS;
 	//Properties c = new Properties();
  
 @Test
@@ -31,7 +32,7 @@ public class ReadUserconfig {
 		Scr =prop1.getProperty("Screenshots");
 		ExcelReports =prop1.getProperty("Excel_Reports");
 		HistoricalReports = prop1.getProperty("Historical_Reports");
-		
+		OS = prop1.getProperty("OS");
 		}
 
 	
