@@ -119,7 +119,7 @@ public class Execute_MainScript {
 		Applog=Logger.getLogger(uc.SiteName);
 
 
-		PropertyConfigurator.configure("./resources/Log4j.properties");
+		PropertyConfigurator.configure(System.getProperty("user.dir")+"\\resources\\Log4j.properties");
 		Startdate = new Date() ;
 		StartTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss") ;
 	
