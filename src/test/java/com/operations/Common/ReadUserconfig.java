@@ -16,6 +16,7 @@ public class ReadUserconfig {
 	public String ExcelReports;
 	public String HistoricalReports;
 	public String OS;
+	public String Username;
 	//Properties c = new Properties();
  
 @Test
@@ -33,6 +34,7 @@ public class ReadUserconfig {
 		ExcelReports =prop1.getProperty("Excel_Reports");
 		HistoricalReports = prop1.getProperty("Historical_Reports");
 		OS = prop1.getProperty("OS");
+		Username=prop1.getProperty("Username");
 		}
 
 	

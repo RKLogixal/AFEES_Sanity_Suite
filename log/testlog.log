@@ -3780,3 +3780,69 @@ Driver info: driver.version: unknown
 2019-11-21 19:44:47,379 - AFEES -INFO - TC19_Verify_Giftcard_SCS_Site has been skipped for this execution...
 2019-11-21 19:44:47,887 - AFEES -INFO - Execution ended on : 2019-11-21_19-44-47
 2019-11-21 20:00:55,179 - AFEES -INFO - Execution started on 2019-11-21_20-00-55
+2019-11-21 20:17:31,772 - AFEES -INFO - Execution started on 2019-11-21_20-17-31
+2019-11-21 20:30:10,133 - AFEES -INFO - Execution started on 2019-11-21_20-30-10
+2019-11-21 20:44:41,774 - AFEES -INFO - Execution started on 2019-11-21_20-44-41
+2019-11-21 20:44:52,642 - AFEES -INFO - Execution ended on : 2019-11-21_20-44-52
+2019-11-21 20:45:16,191 - AFEES -INFO - Execution started on 2019-11-21_20-45-16
+2019-11-21 20:45:26,493 - AFEES -INFO - Execution Started for Testcase number : TC01_Verify_Navigations at time : 2019-11-21 20:45
+2019-11-21 20:45:55,049 - AFEES -INFO - Execution started on 2019-11-21_20-45-54
+2019-11-21 20:47:35,598 - AFEES -INFO - Execution Started for Testcase number : TC01_Verify_Navigations at time : 2019-11-21 20:47
+2019-11-21 20:47:43,293 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/
+2019-11-21 21:15:39,128 - AFEES -INFO - Execution started on 2019-11-21_21-15-39
+2019-11-21 21:15:49,978 - AFEES -INFO - Execution Started for Testcase number : TC01_Verify_Navigations at time : 2019-11-21 21:15
+2019-11-21 21:15:56,726 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/
+2019-11-21 21:16:03,204 - AFEES -INFO - WebElement hamburger Successfully identified
+2019-11-21 21:16:04,584 - AFEES -INFO - WebElement Shoes_Category Successfully identified
+2019-11-21 21:16:05,541 - AFEES -INFO - WebElement MyAccountOption Successfully identified
+2019-11-21 21:16:06,656 - AFEES -INFO - WebElement MilitaryOption Successfully identified
+2019-11-21 21:16:14,591 - AFEES -INFO - WebElement TOP_Navigation Successfully identified
+2019-11-21 21:16:15,153 - AFEES -INFO - Execution Ended for testcase number : TC01_Verify_Navigations at time : 2019-11-21 21:15
+2019-11-21 21:16:15,246 - AFEES -INFO - Execution Started for Testcase number : TC02_PLP_Check at time : 2019-11-21 21:16
+2019-11-21 21:16:17,231 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/
+2019-11-21 21:16:23,046 - AFEES -INFO - WebElement hamburger Successfully identified
+2019-11-21 21:16:24,263 - AFEES -INFO - WebElement Handbags_category Successfully identified
+2019-11-21 21:16:30,502 - AFEES -INFO - WebElement Handbags_category Successfully identified
+2019-11-21 21:16:40,737 - AFEES -INFO - WebElement Allgro_brand Successfully identified
+2019-11-21 21:17:27,521 - AFEES -INFO - TEXT : Allegro BasicsWhich you are looking for Webelement brand_filter1 has been found successfully...
+2019-11-21 21:17:33,147 - AFEES -INFO - WebElement Clear_filter_Button Successfully identified
+2019-11-21 21:17:46,992 - AFEES -INFO - WebElement Sunglasses Successfully identified
+2019-11-21 21:17:55,248 - AFEES -INFO - WebElement SubCategory Successfully identified
+2019-11-21 21:18:46,833 - AFEES -INFO - WebElement PLPTOPDP Successfully identified
+2019-11-21 21:18:51,560 - AFEES -INFO - Execution Ended for testcase number : TC02_PLP_Check at time : 2019-11-21 21:16
+2019-11-21 21:18:51,620 - AFEES -INFO - Execution Started for Testcase number : TC03_PDP_Check at time : 2019-11-21 21:18
+2019-11-21 21:18:57,885 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/nike-women-s-flex-supreme-tr-5-training-shoes/8364707
+2019-11-21 21:19:01,618 - AFEES -INFO - Execution Ended for testcase number : TC03_PDP_Check at time : 2019-11-21 21:18
+2019-11-21 21:19:01,644 - AFEES -INFO - TC04_Product_Comparision has been skipped for this execution...
+2019-11-21 21:19:01,665 - AFEES -INFO - TC05_Verify_login has been skipped for this execution...
+2019-11-21 21:19:01,685 - AFEES -INFO - TC06_Verify_Store_Locator has been skipped for this execution...
+2019-11-21 21:19:01,704 - AFEES -INFO - TC07_Verify_MyaccountSection_1 has been skipped for this execution...
+2019-11-21 21:19:01,723 - AFEES -INFO - TC07_Verify_MyaccountSection_2 has been skipped for this execution...
+2019-11-21 21:19:01,745 - AFEES -INFO - TC08_Verify_CartOperations has been skipped for this execution...
+2019-11-21 21:19:01,763 - AFEES -INFO - TC09_Verify_MiniCart has been skipped for this execution...
+2019-11-21 21:19:01,786 - AFEES -INFO - TC10_Search has been skipped for this execution...
+2019-11-21 21:19:01,806 - AFEES -INFO - TC11_Verify_CheckOut_SingleShipping has been skipped for this execution...
+2019-11-21 21:19:01,824 - AFEES -INFO - TC12_Verify_CheckOut_Using_Giftcard has been skipped for this execution...
+2019-11-21 21:19:01,842 - AFEES -INFO - TC13_Verify_CheckOut_SingleShip_multiItems has been skipped for this execution...
+2019-11-21 21:19:01,868 - AFEES -INFO - TC14_Verify_CheckOut_PickUp_InStore has been skipped for this execution...
+2019-11-21 21:19:01,891 - AFEES -INFO - TC15_Verify_CheckOut_MultiShip has been skipped for this execution...
+2019-11-21 21:19:01,906 - AFEES -INFO - TC16_Verify_CheckOut_NewShippingAddress has been skipped for this execution...
+2019-11-21 21:19:01,931 - AFEES -INFO - TC17_Verify_CheckOut_SplitPayment has been skipped for this execution...
+2019-11-21 21:19:01,956 - AFEES -INFO - TC18_Verify_CheckOut_PickUp_InStore_AND_ShipTo has been skipped for this execution...
+2019-11-21 21:19:01,979 - AFEES -INFO - TC19_Verify_Giftcard_SCS_Site has been skipped for this execution...
+2019-11-21 21:19:02,542 - AFEES -INFO - Execution ended on : 2019-11-21_21-19-02
+2019-11-21 21:20:42,371 - AFEES -INFO - Execution started on 2019-11-21_21-20-42
+2019-11-21 21:20:52,538 - AFEES -INFO - Execution Started for Testcase number : TC01_Verify_Navigations at time : 2019-11-21 21:20
+2019-11-21 21:20:59,390 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/
+2019-11-21 21:21:05,904 - AFEES -INFO - WebElement hamburger Successfully identified
+2019-11-21 21:21:07,304 - AFEES -INFO - WebElement Shoes_Category Successfully identified
+2019-11-21 21:21:08,289 - AFEES -INFO - WebElement MyAccountOption Successfully identified
+2019-11-21 21:21:09,431 - AFEES -INFO - WebElement MilitaryOption Successfully identified
+2019-11-21 21:21:17,373 - AFEES -INFO - WebElement TOP_Navigation Successfully identified
+2019-11-21 21:21:17,986 - AFEES -INFO - Execution Ended for testcase number : TC01_Verify_Navigations at time : 2019-11-21 21:20
+2019-11-21 21:21:18,090 - AFEES -INFO - Execution Started for Testcase number : TC02_PLP_Check at time : 2019-11-21 21:21
+2019-11-21 21:21:20,198 - AFEES -INFO - Successfully navigated to URL : http://129.213.54.196:8002/
+2019-11-21 21:21:25,963 - AFEES -INFO - WebElement hamburger Successfully identified
+2019-11-21 21:21:27,165 - AFEES -INFO - WebElement Handbags_category Successfully identified
+2019-11-21 21:21:33,437 - AFEES -INFO - WebElement Handbags_category Successfully identified
+2019-11-21 21:21:43,547 - AFEES -INFO - WebElement Allgro_brand Successfully identified

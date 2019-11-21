@@ -193,7 +193,7 @@ public class Execute_MainScript {
 
 				}
 				
-				else if (uc.OS.equalsIgnoreCase("Linux")) {
+				else if (uc.OS.equalsIgnoreCase("Windows")) {
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					//WebDriverManager.chromedriver().setup();
 					webdriver = new ChromeDriver();
@@ -280,9 +280,6 @@ public class Execute_MainScript {
 						FC.ExecuteTestcasesLinux(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
 					
-					else {
-						System.out.println("Please Specify OS correctly i.e. either Windows or Linux...!!!!");
-					}
 					//System.out.println("Currently running Testcase : " + Testcasenumber);
 					//	scre.Execute_script(Sitename,browser_name,Constants.Windows_InputFileLocation+uc.SiteName+"/",Constants.Windows_OutputFileLocation+StartTime.format(Startdate)+"/"+Sitename+"/"+browser_name+"/",
 					//		Constants.Windows_ScreenshotsLocation+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,uc.Scr,uc.ExcelReports,extent,Applog);
