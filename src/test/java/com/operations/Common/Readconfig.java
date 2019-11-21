@@ -20,7 +20,7 @@ public class Readconfig {
 	public void getObjectRepository() throws IOException{
 		//Read object repository file
 		
-		File configFile = new File(System.getProperty("user.dir")+"/resources/config.properties");
+		File configFile = new File(System.getProperty("user.dir")+"/Resources/config.properties");
 		InputStream inputStream = new FileInputStream(configFile);
 		Properties prop1 = new Properties();
 		prop1.load(inputStream);
