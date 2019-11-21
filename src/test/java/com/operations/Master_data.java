@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
@@ -109,6 +110,8 @@ public class Master_data {
 		return Total_data;
 	}
 	private static void Readexcel(String str) {
+		
+		System.out.println(System.getProperty("user.dir"));
 		// TODO Auto-generated method stub
 		File Master_file = null;
 		
@@ -119,8 +122,9 @@ public class Master_data {
 		
 		else if (uc.OS.equalsIgnoreCase("Linux")) {
 			
+			System.out.println((System.getProperty("user.dir")+"/Input_files/Master_executors/MasterExecutor"+"_"+str+".xlsx"));
 			 Master_file =	new File(System.getProperty("user.dir")+"/Input_files/Master_executors/MasterExecutor"+"_"+str+".xlsx");
-			
+			// (System.getProperty("user.dir")+"/Resources/Config.properties")
 		}
 		
 		else {
@@ -131,6 +135,7 @@ public class Master_data {
 
 		FileInputStream Master_inputStream = null;
 		Readexcel = new Xls_Reader(System.getProperty("user.dir")+Master_file);
+		
 		try {
 			Master_inputStream = new FileInputStream(Master_file);
 		} catch (FileNotFoundException e2) {
