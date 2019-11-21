@@ -138,7 +138,8 @@ public class Master_data {
 		Readexcel = new Xls_Reader(System.getProperty("user.dir")+Master_file);
 		
 		try {
-			Master_inputStream = new FileInputStream(Master_file);
+			System.out.println(":^^^^^^^^^SDsd");
+			Master_inputStream = new FileInputStream(System.getProperty("user.dir")+Master_file);
 		} catch (FileNotFoundException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
