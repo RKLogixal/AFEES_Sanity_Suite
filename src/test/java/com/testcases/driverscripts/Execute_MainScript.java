@@ -21,6 +21,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -185,6 +186,10 @@ public class Execute_MainScript {
 				if(uc.OS.equalsIgnoreCase("Linux")) {
 					
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
+					ChromeDriverService service = new ChromeDriverService.Builder()
+			                .usingDriverExecutable(new File("/Browser_files/chromedriver_linux64/chromedriver"))
+			                .usingAnyFreePort()
+			                .build();
 					//WebDriverManager.chromedriver().setup();
 					webdriver = new ChromeDriver();
 					//Dimension d = new Dimension(DeviceScrWidth, DeviceScrHeight);
@@ -280,6 +285,9 @@ public class Execute_MainScript {
 						FC.ExecuteTestcasesLinux(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
 					
+					else {
+						System.out.println("Please Specify OS correctly i.e. either Windows or Linux...!!!!");
+					}
 					//System.out.println("Currently running Testcase : " + Testcasenumber);
 					//	scre.Execute_script(Sitename,browser_name,Constants.Windows_InputFileLocation+uc.SiteName+"/",Constants.Windows_OutputFileLocation+StartTime.format(Startdate)+"/"+Sitename+"/"+browser_name+"/",
 					//		Constants.Windows_ScreenshotsLocation+StartTime.format(Startdate)+"/"+uc.SiteName+"/"+browser_name+"/", webdriver,Section,Functionality, Testcasenumber, Testcase_description, Executionmode, Severity,uc.Scr,uc.ExcelReports,extent,Applog);
@@ -312,7 +320,7 @@ public class Execute_MainScript {
 				e.printStackTrace(new PrintWriter(stack));
 				Applog.error(stack.toString());
 				//FC.FailedTCOperation(Testcase_description, screxe, webdriver, xls_writer, Testscase_failresults, browser_name, Functionality, Testcasenumber, Severity, StartTime, Startdate, softAssert, test, extent);
-				Assert.fail(failmsg);
+				Assert.fail(stack.toString());
 
 				//	}
 				//stack.flush();
