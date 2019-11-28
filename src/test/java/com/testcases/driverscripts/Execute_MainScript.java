@@ -187,7 +187,7 @@ public class Execute_MainScript {
 					
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
 					ChromeDriverService service = new ChromeDriverService.Builder()
-			                .usingDriverExecutable(new File("/Browser_files/chromedriver_linux64/chromedriver"))
+			                .usingDriverExecutable(new File(System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver"))
 			                .usingAnyFreePort()
 			                .build();
 					//WebDriverManager.chromedriver().setup();
