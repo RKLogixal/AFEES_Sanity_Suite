@@ -191,7 +191,7 @@ public class Execute_MainScript {
 					options.addArguments("--headless");
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
-					options.addArguments("window-size=1024,768");
+					options.addArguments("window-size=1364,768");
 					webdriver = new ChromeDriver(options);
 					//webdriver.manage().window().maximize();
 				}
