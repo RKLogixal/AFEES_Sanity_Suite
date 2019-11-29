@@ -415,8 +415,11 @@ public class Execute_MainScript {
 		}
 		else if(browser.equalsIgnoreCase("chrome")){
 			webdriver.close();
-			Runtime rt = Runtime.getRuntime();
-			rt.exec("taskkill /F /IM chromedriver.exe");
+			if(uc.OS.equalsIgnoreCase("Windows")) {
+				Runtime rt = Runtime.getRuntime();
+				rt.exec("taskkill /F /IM chromedriver.exe");
+			}
+			
 
 		}
 		else if(browser.equalsIgnoreCase("ie")){
