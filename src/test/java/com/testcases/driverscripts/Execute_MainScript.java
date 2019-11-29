@@ -182,22 +182,16 @@ public class Execute_MainScript {
 
 			} else if (browser.equalsIgnoreCase("chrome"))
 			{
-				
-				if(uc.OS.equalsIgnoreCase("Linux")) {
-					
-					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
-					ChromeDriverService service = new ChromeDriverService.Builder()
-			                .usingDriverExecutable(new File(System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver"))
-			                .usingAnyFreePort()
-			                .build();
-					//WebDriverManager.chromedriver().setup();
-					webdriver = new ChromeDriver();
-					//Dimension d = new Dimension(DeviceScrWidth, DeviceScrHeight);
-					//webdriver.manage().window().setSize(d);
-					webdriver.manage().window().maximize();
 
+				if(uc.OS.equalsIgnoreCase("Linux")) {
+
+					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
+					ChromeOptions options = new ChromeOptions();
+					//options.addExtensions(new File("D:\\ROhit\\Rohit\\Automation\\crx\\extension_4_0_4_0.crx"));
+					options.addArguments("--no-sandbox");
+					ChromeDriver webdriver = new ChromeDriver(options);
 				}
-				
+
 				else if (uc.OS.equalsIgnoreCase("Windows")) {
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					//WebDriverManager.chromedriver().setup();
@@ -206,7 +200,7 @@ public class Execute_MainScript {
 					//webdriver.manage().window().setSize(d);
 					webdriver.manage().window().maximize();
 				}
-				
+
 
 				this.browser_name=browser;
 				this.Channel=Channel;
@@ -279,12 +273,12 @@ public class Execute_MainScript {
 
 						FC.ExecuteTestcasesWindows(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
-					
+
 					if(uc.OS.equalsIgnoreCase("Linux")) {
 
 						FC.ExecuteTestcasesLinux(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
-					
+
 					else {
 						System.out.println("Please Specify OS correctly i.e. either Windows or Linux...!!!!");
 					}
