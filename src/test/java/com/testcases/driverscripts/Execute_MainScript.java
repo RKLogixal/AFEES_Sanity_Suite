@@ -185,8 +185,8 @@ public class Execute_MainScript {
 
 				if(uc.OS.equalsIgnoreCase("Linux")) {
 
-					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
-					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
+					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--headless");
 					options.addArguments("--no-sandbox");
