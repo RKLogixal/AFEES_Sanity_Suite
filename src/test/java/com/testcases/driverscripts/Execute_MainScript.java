@@ -185,9 +185,7 @@ public class Execute_MainScript {
 
 				if(uc.OS.equalsIgnoreCase("Linux")) {
 
-					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
-					//options.addExtensions(new File("D:\\ROhit\\Rohit\\Automation\\crx\\extension_4_0_4_0.crx"));
 					options.addArguments("--no-sandbox");
 					ChromeDriver webdriver = new ChromeDriver(options);
 				}
