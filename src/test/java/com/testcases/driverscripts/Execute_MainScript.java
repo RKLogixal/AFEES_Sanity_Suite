@@ -185,6 +185,7 @@ public class Execute_MainScript {
 
 				if(uc.OS.equalsIgnoreCase("Linux")) {
 
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");
 					ChromeDriver webdriver = new ChromeDriver(options);
