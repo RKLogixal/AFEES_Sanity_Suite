@@ -14,6 +14,7 @@ public class Readconfig {
 	public String output_dir;
 	public String Screenshot_file;
 	public String hub;
+	public String Username;
 	//Properties c = new Properties();
  
 @Test
@@ -29,6 +30,7 @@ public class Readconfig {
 		output_dir = prop1.getProperty("output_dir");
 		Screenshot_file = prop1.getProperty("Screenshot_dir");
 		hub = prop1.getProperty("hub");
+		Username = prop1.getProperty("Username");
 		
 		
 		}

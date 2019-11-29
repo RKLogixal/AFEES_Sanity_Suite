@@ -188,10 +188,11 @@ public class Execute_MainScript {
 					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
 					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
-					options.addArguments("--headless");
+					//options.addArguments("--headless");
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
 					webdriver = new ChromeDriver(options);
+					webdriver.manage().window().maximize();
 				}
 
 				else if (uc.OS.equalsIgnoreCase("Windows")) {

@@ -111,7 +111,7 @@ public class Master_data {
 	}
 	private static void Readexcel(String str) {
 		
-		System.out.println(System.getProperty("user.dir"));
+		//System.out.println(System.getProperty("user.dir"));
 		// TODO Auto-generated method stub
 		File Master_file = null;
 		
