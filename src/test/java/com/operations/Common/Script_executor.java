@@ -62,7 +62,7 @@ public class Script_executor {
 		allObjects =  object.getObjectRepository();
 		
 		String InputFilepath=Filepath+Functionality+"/";
-		Readexcel = new Xls_Reader(System.getProperty("user.dir")+Filepath+Section+"/"+Functionality+"/"+Testcasenumber+".xlsx");
+		Readexcel = new Xls_Reader(Filepath+Section+"/"+Functionality+"/"+Testcasenumber+".xlsx");
 		File file =	new File(Filepath +Section+"/"+Functionality +"/"+ Testcasenumber+".xlsx");
 		FileInputStream inputStream = new FileInputStream(file);
 		XSSFWorkbook Workbook = null;
