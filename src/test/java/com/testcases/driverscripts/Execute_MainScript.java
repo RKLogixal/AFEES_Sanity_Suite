@@ -185,13 +185,14 @@ public class Execute_MainScript {
 
 				if(uc.OS.equalsIgnoreCase("Linux")) {
 
-					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
-					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
+					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_linux64/chromedriver");
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--disable-extensions");
 					//options.addArguments("--headless");
-					//options.addArguments("--no-sandbox");
-					//options.addArguments("--disable-dev-shm-usage");
-					//options.addArguments("window-size=1364,768");
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-dev-shm-usage");
+					options.addArguments("window-size=1364,768");
 					webdriver = new ChromeDriver(options);
 					//webdriver.manage().window().maximize();
 				}
