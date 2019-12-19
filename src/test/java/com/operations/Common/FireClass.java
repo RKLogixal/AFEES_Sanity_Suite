@@ -70,6 +70,11 @@ public class FireClass {
 		failmsg="NOT able to find element within given time frame...!!! Element name: " +"'" + Object + "." ;
 		test = extent.createTest(browser_name+"_"+Testcasenumber);	
 		test.fail(MarkupHelper.createLabel(failmsg,ExtentColor.RED));
+		
+		Actions Mouseaction = new Actions(webdriver);
+		WebElement ele = webdriver.findElement(By.xpath("//div[text()='My Account']"));
+		Mouseaction.moveToElement(ele).build().perform();
+		webdriver.findElement(By.xpath("//*[@id='logout-button']")).click();
 		//test.fail(MarkupHelper.createLabel(Testcasenumber+" has been failed....", ExtentColor.RED));
 		Assert.fail(failmsg);
 	}
