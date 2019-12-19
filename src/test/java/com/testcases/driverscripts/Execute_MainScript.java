@@ -189,15 +189,9 @@ public class Execute_MainScript {
 					//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Browser_files/chromedriver_win32/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
 					//options.addArguments("--headless");
-					/*options.addArguments("--no-sandbox");
-					options.addArguments("--disable-dev-shm-usage");
-					options.addArguments("window-size=1364,768");*/
-					//options.addArguments("start-maximized"); // open Browser in maximized mode
-					options.addArguments("disable-infobars"); // disabling infobars
-					options.addArguments("--disable-extensions"); // disabling extensions
-					options.addArguments("--disable-gpu"); // applicable to windows os only
-					options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-					options.addArguments("--no-sandbox"); // Bypass OS security model
+					//options.addArguments("--no-sandbox");
+					//options.addArguments("--disable-dev-shm-usage");
+					//options.addArguments("window-size=1364,768");
 					webdriver = new ChromeDriver(options);
 					//webdriver.manage().window().maximize();
 				}
