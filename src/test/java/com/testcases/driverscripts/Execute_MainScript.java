@@ -193,6 +193,7 @@ public class Execute_MainScript {
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
 					options.addArguments("--window-size=1364,768");
+					options.addArguments("--remote-debugging-port=9222");
 					
 					webdriver = new ChromeDriver(options);
 					//webdriver.manage().window().maximize();
