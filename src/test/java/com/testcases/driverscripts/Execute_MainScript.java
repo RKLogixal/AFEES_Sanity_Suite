@@ -281,7 +281,7 @@ public class Execute_MainScript {
 						FC.ExecuteTestcasesWindows(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
 
-					if(uc.OS.equalsIgnoreCase("Linux")) {
+					else if(uc.OS.equalsIgnoreCase("Linux")) {
 
 						FC.ExecuteTestcasesLinux(Testcasenumber, scre, Sitename, browser_name,StartTime, Startdate, webdriver, Functionality, Section, Testcase_description, Executionmode, Severity, extent, Applog);
 					}
